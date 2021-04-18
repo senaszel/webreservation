@@ -3,18 +3,78 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <style>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/sen/WSB_programowanie_aplikacji_webowych/niedziela18apr/niedziela18apr/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/sen/WSB_programowanie_aplikacji_webowych/niedziela18apr/niedziela18apr/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
-</div>
+        body{
+        background-size:auto;
+        background-image: url("img/bg.png");
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .image-box {
+            width: 50%;
+            height: 200px;
+            position: absolute;
+            top: -200px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            background-image: url(img/Logo.png);
+            }
+            .button-box {
+            width: 20%;
+            height: 100px;
+            position: absolute;
+            top: 100px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            }
+
+            .button{
+                width: 90%;
+                height: 100%;
+                background: #CC0000;
+                border-bottom: 1px double #660000;
+                border-top: 1px double #660000;
+                border-left:1px double #FF0033;
+                border-right:1px double #FF0033;
+                color: white;
+                font-size: 2vmin;
+            }
+
+    </style>
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="image-box"></div>
+       <div class="button-box">
+           <button class="button">
+
+            <font face="Arial Black">ZAREZERWUJ STOLIK</font><br>
+
+           </button>
+        </div>
+
+
+
+    </div>
+
+    <script src="https://unpkg.com/@popperjs/core@2.4.0/dist/umd/popper.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+</body>
+</html>
 {% endblock %}
