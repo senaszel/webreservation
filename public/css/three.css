@@ -1,7 +1,8 @@
 @import url("https://use.typekit.net/jmk3xov.css");
 
 :root {
-  --dark-bg: rgba(15, 15, 15, 0.95);
+  --dark-bg: hsl(0, 0%, 0%,80%);
+  --white-bg: hsl(0, 0%, 100%,60%);
   --spacing: 350px;
 
   font-family: brandon-grotesque, sans-serif;
@@ -63,18 +64,33 @@ main {
    }
 
    blockquote {
+     background-color: var(--white-bg);
      margin: 0;
-     padding: 0;
-     grid-column: 2 / span 8;
+     padding: 2rem;
+     grid-column: 2 / 12;
      margin-bottom: var(--spacing);
    }
 
    blockquote p {
      color: black;
-     background-color: white;
      font-size: 4rem;
      display: inline;
-     line-height: 2;
+     line-height: 1;
+   }
+
+   #thanks {
+     background-color: var(--white-bg);
+     margin: 0;
+     padding: 3rem;
+     grid-column: 2 / span 6;
+     margin-bottom: var(--spacing);
+   }
+
+   #dziekujemy {
+     height: auto;
+     width: 100%;
+     grid-column: 2 / span 5;
+     font-size: 2.5rem;
    }
 
    .left {
