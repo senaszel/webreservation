@@ -15,48 +15,17 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setPixelRatio( window.devicePixelRatio);
 renderer.setSize(window.innerWidth,window.innerHeight);
 
-camera.position.setZ(30);
+camera.position.setX(20);
+camera.position.setZ(60);
 
 renderer.render(scene,camera);
-
-const geometry = new THREE.TorusGeometry(10,3,16,100);
+const value = getRandom()*6;
+const geometry = new THREE.BoxGeometry(value,value,value);
 //const material = new THREE.MeshBasicMaterial({color:0xFF6347,wireframe:true});
 const material = new THREE.MeshStandardMaterial({color:0xFF6347});
-const torus = new THREE.Mesh(geometry,material);
-
-scene.add(torus);
-
-const controls = new OrbitControls(camera,renderer.domElement);
-
-function addStar() {
-  const geometry = new THREE.SphereGeometry(0.25,24.24);
-  const material = new THREE.MeshStandardMaterial({color:0xffffff});
-  const star = new THREE.Mesh( geometry,material);
-
-  const [x,y,z] = Array(3).fill().map(()=>THREE.MathUtils.randFloatSpread(100));
-
-  star.position.set(x,y,z);
-  scene.add(star);
-}
-
-Array(200).fill().forEach(addStar);
-
-const spaceTexture = new THREE.TextureLoader().load('pic/space.jpg');
-scene.background = spaceTexture;
-
-function animate(){
-  requestAnimationFrame(animate);
-
-  torus.rotation.x += 0.01;
-  torus.rotation.y += 0.005;
-  torus.rotation.z += 0.01;
-
-  controls.update();
-
-  renderer.render(scene,camera);
-};
-
-animate();
+const bigPixel = new THREE.Mesh(geometry,material);
+bigPixel.position.set(0,0,0);
+scene.add(bigPixel);
 
 const pointLight = new THREE.PointLight(0xffffff);
 pointLight.position.set(20,20,20);
@@ -66,6 +35,69 @@ scene.add(pointLight);
 const ambientLight = new THREE.AmbientLight(0xffffff);
 scene.add(ambientLight);
 
-const lightHelper = new THREE.PointLightHelper(pointLight);
-const gridHelper = new THREE.GridHelper(200,50);
-scene.add(lightHelper,gridHelper);
+// const lightHelper = new THREE.PointLightHelper(pointLight);
+// const gridHelper = new THREE.GridHelper(200,50);
+// scene.add(lightHelper,gridHelper);
+
+//const controls = new OrbitControls(camera,renderer.domElement);
+
+
+
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
+};
+
+function getRandom() {
+   return getRandomInt(25,225)/100;
+ };
+
+function randomColor() {
+    const colors = ['red','blue','green','orange','pink','purple','yellow'];
+    return colors[Math.floor(Math.random() * colors.length)];
+};
+
+function addFloatingPixel() {
+  const geometry = new THREE.BoxGeometry(getRandom(),getRandom(),getRandom());
+  const material = new THREE.MeshStandardMaterial();
+  const pixel = new THREE.Mesh( geometry,material);
+
+  const [x,y,z] = Array(3).fill().map(()=>THREE.MathUtils.randFloatSpread(100));
+
+  pixel.position.set(x,y,z);
+  pixel.material.color.set(randomColor());
+  scene.add(pixel);
+};
+
+Array(200).fill().forEach(addFloatingPixel);
+
+const spaceTexture = new THREE.TextureLoader().load('pic/pixel_space.jpeg');
+scene.background = spaceTexture;
+
+function moveCamera() {
+
+  const t = document.body.getBoundingClientRect().top;
+
+  camera.position.z = t * -0.01;
+  camera.position.x = t * -0.0002;
+  camera.rotation.y = t * -0.0002;
+};
+
+document.body.onscroll = moveCamera;
+moveCamera();
+
+function animate(){
+  requestAnimationFrame(animate);
+
+  bigPixel.rotation.x += 0.01;
+  bigPixel.rotation.y += 0.005;
+  bigPixel.rotation.z += 0.01;
+
+  // bigPixel.material.color.set(randomColor());
+//  controls.update();
+
+  renderer.render(scene,camera);
+};
+
+animate();
