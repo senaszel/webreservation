@@ -1,12 +1,12 @@
 @import url("https://use.typekit.net/jmk3xov.css");
 
 :root {
-  --dark-bg: hsl(0, 0%, 0%,80%);
-  --white-bg: hsl(0, 0%, 100%,60%);
+  --dark-bg: hsl(0, 0%, 0%, 80%);
+  --white-bg: hsl(0, 0%, 100%, 60%);
   --spacing: 350px;
 
-  font-family: brandon-grotesque, sans-serif;
-  font-weight: 400;
+  font-family: elevon, sans-serif;
+  font-weight: 500;
   font-style: normal;
 }
 
@@ -24,6 +24,7 @@ main {
  }
 
  h1, h2, h3, blockquote {
+   font-stretch: extra-expanded;
    font-family: elevon, sans-serif;
    font-weight: 700;
    font-style: normal;
@@ -39,7 +40,7 @@ main {
 
    header {
      background: var(--dark-bg);
-     grid-column: 2 / span 10;
+     grid-column: 4 / span 6;
      font-size: 2.5rem;
      padding: 1rem;
      /* margin-bottom: var(--spacing);
@@ -50,7 +51,6 @@ main {
        height: auto;
        width: 100%;
        background: var(--dark-bg);
-       grid-column: 2 / span 8;
        font-size: 2.5rem;
      }
 
@@ -63,15 +63,27 @@ main {
      margin-bottom: var(--spacing);
    }
 
+   #sectionDwa {
+     grid-column: 6 / span 6;
+   }
+
    blockquote {
      background-color: var(--white-bg);
      margin: 0;
      padding: 2rem;
-     grid-column: 2 / 12;
+     grid-column: 4 / span 6;
      margin-bottom: var(--spacing);
    }
 
    blockquote p {
+     color: black;
+     font-size: 4rem;
+     font-stretch: extra-expanded;
+     display: inline;
+     line-height: 1;
+   }
+
+   blockquote a {
      color: black;
      font-size: 4rem;
      display: inline;

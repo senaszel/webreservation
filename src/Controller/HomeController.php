@@ -11,15 +11,15 @@ class HomeController extends AbstractController
     #[Route('/', name: 'home')]
     public function index(): Response
     {
-        return $this->render('home/index.html.twig', [
+        return $this->render('three.html.twig', [
             'controller_name' => 'HomeController',
         ]);
     }
 
-    #[Route('/three', name: 'three')]
-    public function nineFive(): Response
+    #[Route('/rezerwacja3d', name: 'rezerwacja3d')]
+    public function rez3d(): Response
     {
-        return $this->render('three.html.twig', [
+        return $this->render('rez3d.html.twig', [
             'controller_name' => 'HomeController',
         ]);
     }
