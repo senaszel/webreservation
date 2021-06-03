@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Rezerwacja{% endblock %}
+
+{% block body %}
+    <h1>Edit Rezerwacja</h1>
+
+    {{ include('rezerwacja/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('rezerwacja_index') }}">back to list</a>
+
+    {{ include('rezerwacja/_delete_form.html.twig') }}
+{% endblock %}

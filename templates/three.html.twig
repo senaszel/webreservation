@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+  <link href="{{ asset('css/three.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block body %}
+  <h1>dziala 3</h1>
+  <canvas id="bg"></canvas>
+{% endblock %}
+
+{% block javascripts %}
+  <script type="module" src="{{ asset('js/main.js') }}"></script>
+{% endblock %}

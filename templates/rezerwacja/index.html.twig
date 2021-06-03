@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rezerwacja index{% endblock %}
+
+{% block stylesheets %}  {% endblock %}
+
+{% block body %}
+    <h1 class="title_h1">Rezerwacja index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Numer_stolika</th>
+                <th>Licz_gosci</th>
+                <th>Data</th>
+                <th>Numer_kontaktowy</th>
+                <th>Imie_rezerwujacego</th>
+                <th>Nazwisko_rezerwujacego</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for rezerwacja in rezerwacjas %}
+            <tr>
+                <td>{{ rezerwacja.id }}</td>
+                <td>{{ rezerwacja.numerStolika }}</td>
+                <td>{{ rezerwacja.liczGosci }}</td>
+                <td>{{ rezerwacja.data ? rezerwacja.data|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ rezerwacja.numerKontaktowy }}</td>
+                <td>{{ rezerwacja.imieRezerwujacego }}</td>
+                <td>{{ rezerwacja.nazwiskoRezerwujacego }}</td>
+                <td>
+                    <a href="{{ path('rezerwacja_show', {'id': rezerwacja.id}) }}">show</a>
+                    <a href="{{ path('rezerwacja_edit', {'id': rezerwacja.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('nowa_rezerwacja') }}">Create new</a>
+{% endblock %}

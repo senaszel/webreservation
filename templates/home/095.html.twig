@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<form>
+    <?php 
+        for ($x = 0; $x <= 33; $x++) {
+            if ($x == 13) { continue; }
+            for ($y = 0; $y <= 6; y++){
+                print("<input type="button” value=".$x.">");
+                if ($y == 6) {print("<br>")}
+            }
+        } 
+    ?>
+</form>
+{% endblock body%}

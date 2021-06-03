@@ -1,80 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+    {% block title %} Home {% endblock %}
 
-{% block body %}
+    {% block stylesheets %}
+        <link href="{{ asset('css/index.css') }}" rel="stylesheet"/>
+    {% endblock %}
 
-    <style>
-
-        body{
-        background-size:auto;
-        background-image: url("img/bg.png");
-        }
-        .container{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .image-box {
-            width: 50%;
-            height: 200px;
-            position: absolute;
-            top: -200px;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            margin: auto;
-            background-image: url(img/Logo.png);
-            }
-            .button-box {
-            width: 20%;
-            height: 100px;
-            position: absolute;
-            top: 100px;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            margin: auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            }
-
-            .button{
-                width: 90%;
-                height: 100%;
-                background: #CC0000;
-                border-bottom: 1px double #660000;
-                border-top: 1px double #660000;
-                border-left:1px double #FF0033;
-                border-right:1px double #FF0033;
-                color: white;
-                font-size: 2vmin;
-            }
-
-    </style>
-
-    <link rel="stylesheet" href="css/bootstrap.css">
-</head>
-<body>
+    {% block body %}
 
     <div class="container">
-
-        <div class="image-box"></div>
-       <div class="button-box">
-           <button class="button">
-
-            <font face="Arial Black">ZAREZERWUJ STOLIK</font><br>
-
+        <div class="button-box">
+            <button class="button">
+                <a href="{{ path('nowa_rezerwacja') }}">Zarezerwuj Stolik!</a>
            </button>
         </div>
-
-
-
     </div>
 
     <script src="https://unpkg.com/@popperjs/core@2.4.0/dist/umd/popper.min.js"></script>
     <script src="js/bootstrap.js"></script>
 </body>
 </html>
-{% endblock %}
+
+  {% endblock %}
