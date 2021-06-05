@@ -1,0 +1,36 @@
+@import url("https://use.typekit.net/jmk3xov.css");
+
+:root {
+  --dark-bg: hsl(0, 0%, 0%, 80%);
+  --white-bg: hsl(0, 0%, 100%, 60%);
+  --spacing: 350px;
+
+  font-family: elevon, sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+main {
+   width: 100vw;
+   color: white;
+   z-index: 99;
+   position: absolute;
+   width: 100%;
+   margin: 0px auto;
+
+   display: grid;
+   grid-template-columns: repeat(12, 1fr);
+ }
+
+ canvas {
+   height: 100%;
+   width: 100%;
+   position: fixed;
+   top: 0;
+   left: 0;
+   grid: 1 / span 12;
+ }
+
+ #here {
+   background: var(--dark-bg);
+}

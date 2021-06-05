@@ -2,26 +2,27 @@ console.log('log ok');
 //window.alert("alert ok");
 
 import * as THREE from 'https://cdn.skypack.dev/three@';
-import { OrbitControls } from 'https://cdn.skypack.dev/three@/examples/jsm/controls/OrbitControls.js';
 
+const canvas = document.querySelector('#bg');
 const scene = new THREE.Scene();
 
-const camera = new THREE.PerspectiveCamera(75,window.innerWidth / window.innerHeight,0.1,1000);
+const fov = 75;
+const aspectRatio = window.innerWidth / window.innerHeight;
+const near = 0.01;
+const far = 1000;
+const camera = new THREE.PerspectiveCamera(fov,aspectRatio,near,far);
+camera.position.z = 3;
 
 const renderer = new THREE.WebGLRenderer({
-  canvas: document.querySelector('#bg'),
+  canvas: canvas,
 });
-
-renderer.setPixelRatio( window.devicePixelRatio);
+renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth,window.innerHeight);
 
-camera.position.setX(20);
-camera.position.setZ(60);
-
 renderer.render(scene,camera);
+
 const value = getRandom()*6;
 const geometry = new THREE.BoxGeometry(value,value,value);
-//const material = new THREE.MeshBasicMaterial({color:0xFF6347,wireframe:true});
 const material = new THREE.MeshStandardMaterial({color:0xFF6347});
 const bigPixel = new THREE.Mesh(geometry,material);
 bigPixel.position.set(0,0,0);
@@ -29,17 +30,10 @@ scene.add(bigPixel);
 
 const pointLight = new THREE.PointLight(0xffffff);
 pointLight.position.set(20,20,20);
-
 scene.add(pointLight);
 
 const ambientLight = new THREE.AmbientLight(0xffffff);
 scene.add(ambientLight);
-
-// const lightHelper = new THREE.PointLightHelper(pointLight);
-// const gridHelper = new THREE.GridHelper(200,50);
-// scene.add(lightHelper,gridHelper);
-
-//const controls = new OrbitControls(camera,renderer.domElement);
 
 
 
@@ -72,8 +66,11 @@ function addFloatingPixel() {
 
 Array(200).fill().forEach(addFloatingPixel);
 
-const spaceTexture = new THREE.TextureLoader().load('pic/pixel_space.jpeg');
-scene.background = spaceTexture;
+{
+  const loader = new THREE.TextureLoader()
+  const texture = loader.load('pic/pixel_space.jpeg');
+  scene.background = texture;
+}
 
 function moveCamera() {
 
@@ -93,9 +90,6 @@ function animate(){
   bigPixel.rotation.x += 0.01;
   bigPixel.rotation.y += 0.005;
   bigPixel.rotation.z += 0.01;
-
-  // bigPixel.material.color.set(randomColor());
-//  controls.update();
 
   renderer.render(scene,camera);
 };
