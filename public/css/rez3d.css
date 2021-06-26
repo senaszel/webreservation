@@ -32,5 +32,15 @@ main {
  }
 
  #here {
+   grid-column-start: 2;
+   grid-column-end: 11;
+   grid-row-start:1;
+   grid-row-end:1;
+   padding: 1rem;
+   position: absolute;
    background: var(--dark-bg);
+}
+
+#option {
+  background: var(--white-bg);
 }
