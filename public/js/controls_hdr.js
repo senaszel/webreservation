@@ -20,4 +20,4 @@ var option = document.getElementById('option');
   };
 
 var bg = document.getElementById('bg');
-bg.addEventListener("click", showNhideControls);
+bg.addEventListener("dblclick", showNhideControls);
