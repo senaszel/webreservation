@@ -6,7 +6,7 @@
 
 {% block body %}
 <canvas id="bg"></canvas>
-  <main>
+  <main id="main" style="display: none">
      <header>
        <img id= "logo" src="{{ asset('logo.gif') }}" alt="pixelburger logo">
      </header>
@@ -79,4 +79,8 @@
 
 {% block javascripts %}
   <script type="module" src="{{ asset('js/main.js') }}"></script>
+  <script>
+    window.onload = function()
+      { document.getElementById("main").style.display = ""; }
+  </script>
 {% endblock %}

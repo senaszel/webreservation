@@ -34,3 +34,7 @@ main {
  #here {
    background: var(--dark-bg);
 }
+
+#option {
+  background: var(--white-bg);
+}

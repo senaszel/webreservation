@@ -5,12 +5,12 @@
 {% endblock %}
 
 {% block body %}
-<canvas id="bg" ondblclick="myFunction()">canvas</canvas>
+<canvas id="bg">canvas</canvas>
   <main>
     <div id="here" style="display:none;">
       <ul>
         <li>
-          <p>Wynajmij ten stolik</p>
+          <p id="option">Wynajmij ten stolik</p>
         </li>
         <li>
           <p>Obejrzyj inne stoliki</p>
@@ -21,15 +21,6 @@
 {% endblock %}
 
 {% block javascripts %}
-      <script>
-        function myFunction() {
-          var x = document.getElementById('here');
-          x.style.display =
-            (x.style.display.toString() == 'none')
-              ? 'block'
-              : 'none';
-          console.log(x.style.display);
-        };
-      </script>
+  <script type="module" src="{{ asset('js/controls_hdr.js') }}"></script>
   <script type="module" src="{{ asset('js/proba_hdr.js') }}"></script>
 {% endblock %}
