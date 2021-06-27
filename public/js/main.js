@@ -1,6 +1,3 @@
-console.log('log ok');
-//window.alert("alert ok");
-
 import * as THREE from 'https://cdn.skypack.dev/three@';
 
 const canvas = document.querySelector('#bg');

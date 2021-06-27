@@ -1,24 +1,25 @@
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %}
-<link href="{{ asset('css/rez3d.css') }}" rel="stylesheet"/>
+  {{ parent() }}
+  <link href="{{ asset('css/rez3d.css') }}" rel="stylesheet"/>
 {% endblock %}
 
 {% block body %}
 <canvas id="bg">canvas</canvas>
   <main>
     <div id="here" style="display:none;">
-      <p id="option">Wynajmij ten stolik</p>
-    </div>
-
-    <div id="here" style="display:none;">
-    <p id="option">Obejrzyj inne stoliki</p>
+      <a href="{{ path('nowa_rezerwacja') }}">
+        <p id="option">Wynajmij ten stolik</p>
+      </a>
     </div>
   </main>
 {% endblock %}
 
 {% block javascripts %}
   {{ parent() }}
-  <script type="module" src="{{ asset('js/controls_hdr.js') }}"></script>
-  <script type="module" src="{{ asset('js/proba_hdr.js') }}"></script>
+  <script type="module" src="{{ asset('js/pokoj_wolf.js') }}">
+  </script>
+  <script type="module" src="{{ asset('js/controls_hdr.js') }}">
+  </script>
 {% endblock %}

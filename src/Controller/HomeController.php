@@ -24,11 +24,4 @@ class HomeController extends AbstractController
         ]);
     }
 
-    #[Route('/equ', name: 'equ')]
-    public function equ(): Response
-    {
-        return $this->render('equ.html.twig', [
-            'controller_name' => 'HomeController',
-        ]);
-    }
 }
