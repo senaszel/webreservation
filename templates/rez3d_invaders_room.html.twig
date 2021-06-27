@@ -10,7 +10,7 @@
   <main>
     <div id="here" style="display:none;">
       <a href="{{ path('nowa_rezerwacja') }}">
-        <p id="option">Wynajmij stolik w tym pokoju (Pokój Wolf)</p>
+        <p id="option">Wynajmij stolik w tym pokoju (Pokój Invaders)</p>
       </a>
 
       <div id="kafelki">
@@ -39,8 +39,8 @@
 {% endblock %}
 
 {% block javascripts %}
-  {{ parent() }}
-  <script type="module" src="{{ asset('js/pokoj_wolf.js') }}">
+  <!-- {{ parent() }} -->
+  <script type="module" src="{{ asset('js/pokoj_invaders.js') }}">
   </script>
   <script type="module" src="{{ asset('js/controls_hdr.js') }}">
   </script>

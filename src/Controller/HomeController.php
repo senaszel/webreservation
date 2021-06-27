@@ -24,4 +24,20 @@ class HomeController extends AbstractController
         ]);
     }
 
+    #[Route('/rezerwacja3d_mario_room', name: 'rezerwacja3d_mario_room')]
+    public function rezerwacja3d_mario_room(): Response
+    {
+        return $this->render('rez3d_mario_room.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
+
+    #[Route('/rezerwacja3d_invaders_room', name: 'rezerwacja3d_invaders_room')]
+    public function rezerwacja3d_invaders_room(): Response
+    {
+        return $this->render('rez3d_invaders_room.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
+
 }

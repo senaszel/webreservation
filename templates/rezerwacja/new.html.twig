@@ -2,6 +2,11 @@
 
 {% block title %}Nowa Rezerwacja{% endblock %}
 
+{% block stylesheet %}
+  {{ parent() }}
+  <link href="{{ asset('css/form_new.css') }}" rel="stylesheet"/>
+{% endblock stylesheet %}
+
 {% block body %}
     <h1>Podaj informacje dotyczące składanej rezerwacji</h1>
 

@@ -4,11 +4,6 @@ function showNhideControls() {
     (here.style.display.toString() == 'none')
       ? 'block'
       : 'none';
-  var here2 = document.getElementById('here2');
-  here2.style.display =
-    (here2.style.display.toString() == 'none')
-      ? 'block'
-      : 'none';
 
 var option = document.getElementById('option');
   option.onmouseover = () => {
